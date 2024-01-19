@@ -85,7 +85,7 @@ export class SignUpComponent implements OnInit {
         error: (error) => {
           // Handle registration error
           console.error('Registration error:', error);
-
+          this.loading = false;
           // You can display an error message to the user here
           alert(error.message);
         },
