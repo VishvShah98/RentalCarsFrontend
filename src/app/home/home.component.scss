@@ -1,0 +1,118 @@
+.company-name {
+  /* Pushes the menu button to the right */
+  font-weight: 400;
+  font-size: medium; /* Set the font size to your desired value */
+  text-transform: uppercase; /* Convert text to uppercase */
+  letter-spacing: 2px; /* Add letter spacing */
+  background-color: black; /* Set the background color to black */
+  padding: 5px 16px; /* Add padding for spacing around the text */
+  color: white; /* Set the text color to white */
+  display: inline-block; /* Ensure that the background covers the text only */
+  border-radius: 15px;
+}
+
+.full-height-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%; /* Make the button take the full height of the toolbar */
+}
+
+.icon-display {
+  transform: scale(1.5);
+}
+
+mat-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+}
+
+.image-container {
+  height: 400px; /* Set the height to 400px */
+  overflow: hidden; /* Prevent image overflow */
+}
+
+.background-image {
+  width: 100%; /* Ensure the image spans the entire container */
+  height: 100%; /* Automatically adjust the height while maintaining the aspect ratio */
+  object-fit: cover;
+}
+
+.container {
+  text-align: center; /* Center text horizontally */
+  padding-top: 60px;
+}
+
+.title {
+  font-size: 80px; /* Default font size for title */
+  font-weight: bold; /* Apply bold font weight */
+  font-family: Arial, sans-serif; /* Specify a font family for the title */
+  margin-bottom: 20px; /* Add spacing between title and description */
+}
+
+.description {
+  font-size: 40px; /* Default font size for description */
+  font-style: italic; /* Apply italic font style to description */
+  font-family: Georgia, serif; /* Specify a different font family for description */
+  background-color: #f2e9ff;
+  padding: 5px 16px;
+}
+
+.date-time-container {
+  position: fixed;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  z-index: 1000;
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.example-form-field {
+  width: 100%; /* Adjust the width to fit container */
+  margin-bottom: 10px;
+}
+
+
+.mat-label,
+.mat-hint {
+  color: rgba(0, 0, 0, 0.6); /* Subdued label and hint text */
+  text-align: center;
+}
+
+/* Style for error messages */
+.mat-error {
+  color: #d32f2f;
+  font-size: 0.8rem;
+}
+
+
+
+/* Media Query for Different Font Sizes on Different Screen Sizes */
+@media (max-width: 768px) {
+  .title {
+    font-size: 40px; /* Adjust font size for smaller screens */
+  }
+
+  .description {
+    font-size: 20px; /* Adjust font size for smaller screens */
+    background-color: transparent;
+  }
+
+  .icon-display {
+    transform: scale(1.2);
+  }
+
+  .company-name{
+    font-size:x-small;
+    padding: 2.5px 8px;
+    border-radius: 10px;
+  }
+
+}
