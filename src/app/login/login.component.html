@@ -1,18 +1,20 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <mat-form-field>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
+
+    <mat-form-field *ngIf="!loading">
       <mat-label>Email</mat-label>
       <input matInput formControlName="email">
       <mat-error *ngIf="loginForm.get('email')?.errors?.['required']">Email is required</mat-error>
       <mat-error *ngIf="loginForm.get('email')?.errors?.['email']">Please enter a valid email</mat-error>
     </mat-form-field>
   
-    <mat-form-field>
+    <mat-form-field *ngIf="!loading">
       <mat-label>Password</mat-label>
       <input matInput type="password" formControlName="password">
       <mat-error *ngIf="loginForm.get('password')?.errors?.['required']">Password is required</mat-error>
       <mat-error *ngIf="loginForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters</mat-error>
     </mat-form-field>
   
-    <button mat-raised-button mat-dialog-close color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
-  </form>
-  
+    <button *ngIf="!loading" mat-raised-button  color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
+    <mat-progress-spinner *ngIf="loading" mode="indeterminate"></mat-progress-spinner>
+ 
+  </form>  

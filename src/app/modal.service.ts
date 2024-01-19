@@ -6,6 +6,7 @@ import { SignUpComponent } from './signup/signup.component';
 @Injectable({
   providedIn: 'root',
 })
+
 export class ModalService {
   constructor(private dialog: MatDialog) {}
 
@@ -16,4 +17,5 @@ export class ModalService {
   openLoginModal(): void {
     this.dialog.open(LoginComponent, {});
   }
+  
 }

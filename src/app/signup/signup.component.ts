@@ -19,6 +19,8 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AppStateService } from '../app-state.service';
 import { environment } from '../environment';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-signup',
@@ -33,18 +35,21 @@ import { environment } from '../environment';
     MatIconModule,
     HttpClientModule,
     MatSnackBarModule,
+    MatProgressSpinnerModule,
   ],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.scss',
 })
 export class SignUpComponent implements OnInit {
   signUpForm: FormGroup;
+  loading = false;
 
   constructor(
     private router: Router,
     private appStateService: AppStateService,
     private http: HttpClient,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private dialogRef: MatDialogRef<SignUpComponent>
   ) {
     this.signUpForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -60,6 +65,7 @@ export class SignUpComponent implements OnInit {
     if (this.signUpForm.valid) {
       const apiUrl = environment.apiUrl + 'Users/register';
       const formData = this.signUpForm.value;
+      this.loading = true;
 
       this.http.post(apiUrl, formData).subscribe({
         next: (response: any) => {
@@ -68,6 +74,8 @@ export class SignUpComponent implements OnInit {
 
           // You can update app state or navigate to another page here
           this.appStateService.updateUserId(response.userId);
+
+          this.dialogRef.close();
 
           // Display a success Snackbar
           this.snackBar.open('Registration successful', 'Close', {
@@ -80,6 +88,9 @@ export class SignUpComponent implements OnInit {
 
           // You can display an error message to the user here
           alert(error.message);
+        },
+        complete: () => {
+          this.loading = false; // Hide the progress spinner when the request is completed
         },
       });
     }

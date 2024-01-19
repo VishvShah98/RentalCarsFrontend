@@ -14,6 +14,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { environment } from '../environment';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -27,19 +29,22 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     MatIconModule,
     MatSnackBarModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressSpinnerModule,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  loading = false;
 
   constructor(
     private router: Router,
     private appStateService: AppStateService,
     private snackBar: MatSnackBar,
-    private http: HttpClient
+    private http: HttpClient,
+    private dialogRef: MatDialogRef<LoginComponent>
   ) {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -54,6 +59,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       const apiUrl = environment.apiUrl + 'Users/login';
       const formData = this.loginForm.value;
+      this.loading = true;
 
       this.http.post(apiUrl, formData).subscribe({
         next: (response: any) => {
@@ -62,8 +68,8 @@ export class LoginComponent implements OnInit {
           // Update app state with the user ID
           this.appStateService.updateUserId(response.userId);
 
-          // Navigate to the dashboard or home page after login
-          // this.router.navigate(['/dashboard']);
+          // Close the dialog
+          this.dialogRef.close();
 
           // Display a success Snackbar
           this.snackBar.open('Login successful', 'Close', {
@@ -75,6 +81,9 @@ export class LoginComponent implements OnInit {
 
           // Display an error message to the user
           alert(error.message);
+        },
+        complete: () => {
+          this.loading = false; // Hide the progress spinner when the request is completed
         },
       });
     }

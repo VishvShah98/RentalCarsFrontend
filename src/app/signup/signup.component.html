@@ -1,6 +1,6 @@
 <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
   <!-- Email Field -->
-  <mat-form-field>
+  <mat-form-field *ngIf="!loading">
     <mat-label>Email</mat-label>
     <input matInput formControlName="email" />
     <mat-error *ngIf="signUpForm.get('email')?.errors?.['required']">
@@ -12,7 +12,7 @@
   </mat-form-field>
 
   <!-- Password Field -->
-  <mat-form-field style="margin-bottom: 0px">
+  <mat-form-field style="margin-bottom: 0px" *ngIf="!loading">
     <mat-label>Password</mat-label>
     <input
       matInput
@@ -25,7 +25,7 @@
     />
     <!-- Password Requirements -->
   </mat-form-field>
-  <div class="password-requirements">
+  <div class="password-requirements" *ngIf="!loading">
     Password must be at least 6 characters, include at least one
     non-alphanumeric character, one digit ('0'-'9'), and one uppercase ('A'-'Z')
     character.
@@ -33,11 +33,12 @@
   <!-- Submit Button -->
   <button
     mat-raised-button
-    mat-dialog-close
     color="primary"
     type="submit"
     [disabled]="signUpForm.invalid"
+    *ngIf="!loading"
   >
     Sign Up
   </button>
+  <mat-progress-spinner *ngIf="loading" mode="indeterminate"></mat-progress-spinner>
 </form>
