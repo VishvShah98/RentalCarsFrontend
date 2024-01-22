@@ -1,1 +1,30 @@
-<p>car-card works!</p>
+<!-- <mat-card>
+  <div mat-card-avatar [style.background-image]="'url(' + carImage + ')'">{{ carName }}</div>
+  <mat-card-header>
+    <mat-card-title></mat-card-title>
+  </mat-card-header>
+  <img mat-card-image [src]="carImage" alt="{{ carName }}" />
+
+  <mat-card-content>
+    <p>Total Price: {{ carPrice }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary">Book Now</button>
+  </mat-card-actions>
+</mat-card> -->
+
+
+<mat-card>
+  <div class="car-header">
+    <!-- <div mat-card-avatar [style.background-image]="'url(' + carImage + ')'"></div> -->
+    <div class="car-name">{{ carName }}</div>
+  </div>
+  <img mat-card-image [src]="carImage" alt="{{ carName }}" />
+
+  <mat-card-content>
+    <p>Total Price: ${{ carPrice }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary">Book Now</button>
+  </mat-card-actions>
+</mat-card>

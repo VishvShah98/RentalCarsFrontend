@@ -1,0 +1,107 @@
+// mat-card {
+//   max-width: 400px;
+//   margin: auto; /* Centers the card */
+//   box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
+//   border-radius: 8px; /* Rounded corners */
+//   overflow: hidden; /* Ensures nothing spills out of card corners */
+// }
+
+// mat-card-header {
+//   padding: 16px;
+//   background-color: #f5f5f5; /* Light background for the header */
+//   border-bottom: 1px solid #e0e0e0; /* Subtle separator */
+
+//   mat-card-title {
+//     margin: 0;
+//     font-size: 20px;
+//     color: #333; /* Dark color for better readability */
+//   }
+// }
+
+// img[mat-card-image] {
+//   width: 100%; /* Full width */
+//   height: auto; /* Maintain aspect ratio */
+//   object-fit: cover;
+// }
+
+// mat-card-content {
+//   padding: 16px;
+//   color: #666; /* Slightly muted text color */
+//   font-size: 16px;
+// }
+
+// mat-card-actions {
+//   padding: 16px;
+//   background-color: #f9f9f9; /* Slightly different background for distinction */
+//   text-align: center; /* Center aligns the button */
+// }
+
+// button[mat-button] {
+//   background-color: #007bff; /* Attractive button color */
+//   color: white;
+//   padding: 10px 20px;
+//   border: none;
+//   border-radius: 4px;
+//   cursor: pointer;
+//   transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+// }
+
+// button[mat-button]:hover {
+//   background-color: #0056b3; /* Darker shade on hover */
+// }
+
+mat-card {
+  max-width: 400px;
+  margin: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  border: solid #ececec 2px;
+}
+
+.car-header {
+  display: flex; /* Display car name and avatar in a row */
+  align-items: center; /* Vertically center the items */
+  text-align: center;
+  padding: 16px 0 16px 0;
+  font-weight: 500;
+  background-color: white;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.car-header .car-name {
+  margin-left: 16px; /* Add spacing between image and name */
+  font-size: 20px;
+  color: #333;
+}
+
+img[mat-card-image] {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+mat-card-content {
+  padding: 16px;
+  color: #666;
+  font-size: 16px;
+}
+
+mat-card-actions {
+  padding: 16px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+button[mat-button] {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[mat-button]:hover {
+  background-color: #0056b3;
+}

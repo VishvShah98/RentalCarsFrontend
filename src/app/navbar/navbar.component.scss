@@ -1,0 +1,91 @@
+.company-name {
+  /* Pushes the menu button to the right */
+  font-weight: 400;
+  font-size: 15px;; /* Set the font size to your desired value */
+  text-transform: uppercase; /* Convert text to uppercase */
+  letter-spacing: 2px; /* Add letter spacing */
+  background-color: black; /* Set the background color to black */
+  padding: 10px 16px; /* Add padding for spacing around the text */
+  color: white; /* Set the text color to white */
+  display: inline-block; /* Ensure that the background covers the text only */
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.full-height-button {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: none;
+  justify-content: space-between;
+  height: 100%; /* Make the button take the full height of the toolbar */
+  transition: background-color 0.3s;
+}
+
+.full-height-button:hover {
+  background-color: #f0f0f0; /* Change to the desired background color on hover */
+  cursor: pointer;
+}
+
+.icon-display {
+  transform: scale(1);
+}
+
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  border-bottom: solid #ececec;
+}
+
+.date-range {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #593cfb; /* Set the text color of "From" and "To" to #593CFB */
+  font-weight: normal;
+  height: 100%;
+  padding: 0px 5px 0px 5px;
+  transition: background-color 0.3s;
+}
+
+.date-range:hover {
+  background-color: #f0f0f0; /* Change to the desired background color on hover */
+  cursor: pointer;
+}
+
+/* CSS code to keep the dates black */
+.date-range .date {
+  color: black; /* Set the text color of the dates to black */
+  font-weight: normal;
+}
+
+/* CSS code to style the down arrow icon */
+.arrow-icon {
+  font-size: 24px; /* Adjust the size of the icon */
+  color: #593cfb; /* Set the color of the icon */
+  vertical-align: middle; /* Align the icon vertically with text */
+  color: black;
+}
+
+/* Media Query for Different Font Sizes on Different Screen Sizes */
+@media (max-width: 768px) {
+  .icon-display {
+    transform: scale(1);
+  }
+
+  .company-name {
+    font-size: x-small;
+    padding: 10px 8px;
+    border-radius: 10px;
+  }
+  .date-range {
+    font-size: 12px; /* Adjust the font size for the date range on smaller screens */
+    padding: 0 3px; /* Adjust padding for the date range box */
+    border-radius: 5px; /* Adjust border-radius for the date range box */
+    overflow: hidden; /* Hide overflowing text */
+    width: 30%;
+    display: none;
+  }
+}

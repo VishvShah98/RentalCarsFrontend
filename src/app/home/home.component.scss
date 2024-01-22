@@ -1,34 +1,3 @@
-.company-name {
-  /* Pushes the menu button to the right */
-  font-weight: 400;
-  font-size: medium; /* Set the font size to your desired value */
-  text-transform: uppercase; /* Convert text to uppercase */
-  letter-spacing: 2px; /* Add letter spacing */
-  background-color: black; /* Set the background color to black */
-  padding: 5px 16px; /* Add padding for spacing around the text */
-  color: white; /* Set the text color to white */
-  display: inline-block; /* Ensure that the background covers the text only */
-  border-radius: 15px;
-}
-
-.full-height-button {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  height: 100%; /* Make the button take the full height of the toolbar */
-}
-
-.icon-display {
-  transform: scale(1.5);
-}
-
-mat-toolbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: white;
-}
-
 .image-container {
   height: 400px; /* Set the height to 400px */
   overflow: hidden; /* Prevent image overflow */
@@ -103,16 +72,6 @@ mat-toolbar {
   .description {
     font-size: 20px; /* Adjust font size for smaller screens */
     background-color: transparent;
-  }
-
-  .icon-display {
-    transform: scale(1.2);
-  }
-
-  .company-name{
-    font-size:x-small;
-    padding: 2.5px 8px;
-    border-radius: 10px;
   }
 
 }

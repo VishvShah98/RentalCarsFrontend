@@ -1,35 +1,4 @@
-<mat-toolbar>
-  <!-- Left side: Company Name -->
-  <span class="company-name"> Getaway cars </span>
-
-  <!-- Right side: User Icon (menu button) -->
-  <button
-    mat-button
-    [matMenuTriggerFor]="beforeMenu"
-    class="full-height-button"
-  >
-    <mat-icon class="icon-display">menu</mat-icon>
-    <mat-icon class="icon-display">person</mat-icon>
-  </button>
-  <mat-menu #beforeMenu="matMenu" xPosition="before" [overlapTrigger]="false">
-    <button mat-menu-item *ngIf="!userId" (click)="showSignUp()">
-      Sign up
-    </button>
-    <button mat-menu-item *ngIf="!userId" (click)="showLogin()">
-      Log in
-    </button>
-    <button
-      mat-menu-item
-      *ngIf="userId"
-      (click)="showMyBookings()"
-    >
-      My Bookings
-    </button>
-    <button mat-menu-item *ngIf="userId" (click)="logout()">
-      Log out
-    </button>
-  </mat-menu>
-</mat-toolbar>
+<app-navbar></app-navbar>
 <!-- Date/Time Picker Form -->
 <div class="date-time-container">
   <mat-form-field class="example-form-field">

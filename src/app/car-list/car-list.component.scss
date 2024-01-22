@@ -1,0 +1,21 @@
+.card-grid {
+  display: grid;
+  grid-template-columns: auto auto auto; /* Creates three columns of equal width */
+  justify-content: center;
+  grid-gap: 40px; /* Adjust the gap between the cards */
+  padding: 50px 0px 50px 0px;
+}
+
+/* For tablets and small desktops */
+@media (max-width: 1024px) {
+  .card-grid {
+    grid-template-columns: auto auto; /* Two columns */
+  }
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: auto; /* One column */
+  }
+}

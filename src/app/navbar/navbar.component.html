@@ -1,0 +1,29 @@
+<mat-toolbar>
+  <!-- Left side: Company Name -->
+ <button class="company-name" (click)="goToHomePage()"> Getaway cars </button>
+
+  <span *ngIf="selectedDateRange" class="date-range">
+    From: &nbsp;<span class="date">{{ selectedDateRange[0] | date }}</span
+    >&nbsp;&nbsp;&nbsp; To: &nbsp;<span class="date">{{
+      selectedDateRange[1] | date
+    }}</span
+    >&nbsp;&nbsp;
+    <!-- <mat-icon class="arrow-icon">keyboard_arrow_down</mat-icon> -->
+  </span>
+
+  <!-- Right side: User Icon (menu button) -->
+  <button [matMenuTriggerFor]="beforeMenu" class="full-height-button">
+    <mat-icon class="icon-display">menu</mat-icon>
+    <mat-icon class="icon-display">person</mat-icon>
+  </button>
+  <mat-menu #beforeMenu="matMenu" xPosition="before" [overlapTrigger]="false">
+    <button mat-menu-item *ngIf="!userId" (click)="showSignUp()">
+      Sign up
+    </button>
+    <button mat-menu-item *ngIf="!userId" (click)="showLogin()">Log in</button>
+    <button mat-menu-item *ngIf="userId" (click)="showMyBookings()">
+      My Bookings
+    </button>
+    <button mat-menu-item *ngIf="userId" (click)="logout()">Log out</button>
+  </mat-menu>
+</mat-toolbar>
